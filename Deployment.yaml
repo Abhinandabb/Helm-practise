@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helm
+  template:
+    metadata:
+      labels:
+        app: helm
+    spec:
+      containers:
+      - name: helm
+        image: abhinand121/helmk8:latest
+        
+        ports:
+        - containerPort: 5000
